@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 app.use(cors({
-  origin: "localhost: http://localhost:3000"
+  origin: "localhost: http://localhost:5173"
 }));
 
 // registro il body-parser per "application/json"
