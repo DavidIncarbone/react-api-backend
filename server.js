@@ -4,7 +4,7 @@ import express from "express";
 import errorsHandler from "./middlewares/errorsHandler.js";
 import notFound from "./middlewares/notFound.js";
 import cors from "cors";
-import examplesRouter from "./routes/examples.js";
+import postsRouter from "./routes/postsRouter.js";
 // create a server instance
 const app = express();
 
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 //other routes
-app.use("/examples", examplesRouter);
+app.use("/posts", postsRouter);
 
 app.use(errorsHandler);
 

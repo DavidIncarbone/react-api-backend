@@ -37,4 +37,4 @@ const posts = [
     published: false,
   },
 ];
-export { posts };
+export default posts;
