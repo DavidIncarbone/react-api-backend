@@ -6,6 +6,7 @@ import notFound from "./middlewares/notFound.js";
 import cors from "cors";
 import corsPolicy from "./middlewares/corsPolicy.js"
 import postsRouter from "./routes/postsRouter.js";
+import tagsRouter from "./routes/tagsRouter.js";
 // create a server instance
 const app = express();
 
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 //other routes
 app.use("/posts", postsRouter);
+app.use("/tags", tagsRouter);
 
 app.use(errorsHandler);
 
