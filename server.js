@@ -4,17 +4,16 @@ import express from "express";
 import errorsHandler from "./middlewares/errorsHandler.js";
 import notFound from "./middlewares/notFound.js";
 import cors from "cors";
+import corsPolicy from "./middlewares/corsPolicy.js"
 import postsRouter from "./routes/postsRouter.js";
 // create a server instance
 const app = express();
 
 // set costant to port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.use(express.static("public"));
 
-app.use(cors({
-  origin: "localhost: http://localhost:5173"
-}));
+app.use(corsPolicy)
 
 // registro il body-parser per "application/json"
 app.use(express.json());
