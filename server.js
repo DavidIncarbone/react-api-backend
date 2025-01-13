@@ -3,7 +3,6 @@ import express from "express";
 //Other imports
 import errorsHandler from "./middlewares/errorsHandler.js";
 import notFound from "./middlewares/notFound.js";
-import cors from "cors";
 import corsPolicy from "./middlewares/corsPolicy.js"
 import postsRouter from "./routes/postsRouter.js";
 import tagsRouter from "./routes/tagsRouter.js";
@@ -12,6 +11,7 @@ const app = express();
 
 // set costant to port
 const port = process.env.PORT || 4000;
+
 app.use(express.static("public"));
 
 app.use(corsPolicy)
@@ -29,7 +29,7 @@ app.use("/tags", tagsRouter);
 
 app.use(errorsHandler);
 
-app.use(notFound);
+app.use("/*", notFound);
 
 //server must listen on your host and your port
 app.listen(port, () => {

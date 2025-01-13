@@ -28,6 +28,14 @@ function store(req, res) {
   newId += 1;
   console.log(req.body);
   // new data is in req.body
+
+  if (!req.body.published) {
+    throw new CustomError("Azione non permessa", 500);
+  }
+
+  if (!req.body.title) {
+    throw new CustomError("Titolo non presente", 500);
+  }
   const newItem = {
     id: newId,
     ...req.body,
