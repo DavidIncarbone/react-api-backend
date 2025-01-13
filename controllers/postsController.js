@@ -30,11 +30,11 @@ function store(req, res) {
   // new data is in req.body
 
   if (!req.body.published) {
-    throw new CustomError("Azione non permessa", 500);
+    throw new CustomError("Pubblica non cliccato", 500);
   }
 
-  if (!req.body.title) {
-    throw new CustomError("Titolo non presente", 500);
+  if (!req.body.title || !req.body.content || !req.body.image || !req.body.category) {
+    throw new CustomError("Uno dei campi risulta vuoto", 500);
   }
   const newItem = {
     id: newId,
